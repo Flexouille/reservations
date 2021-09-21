@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReservationsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/reservation/add', [ReservationsController::class, "index"])->name('reservations.add');
+Route::post('/reservation/store', [ReservationsController::class, 'store'])->name('reservations.store');
