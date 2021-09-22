@@ -22,8 +22,8 @@ class CreateReservationsTable extends Migration
             $table->text('hotel');
             $table->integer('adult_nb');
             $table->integer('child_nb');
-            $table->boolean('breakfast');
-            $table->time('predicted_arrival_time');
+            $table->boolean('breakfast')->default(false);
+            $table->dateTime('predicted_arrival_time');
             $table->longText('comment');
             $table->timestamps();
         });

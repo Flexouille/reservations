@@ -2066,14 +2066,15 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var reservationForm = document.querySelector('#reservationForm');
 reservationForm.addEventListener('submit', function (e) {
   e.preventDefault();
   var errors = 0;
-  console.log(e);
-  debugger;
 
   var _iterator = _createForOfIteratorHelper(e.target),
       _step;
@@ -2097,7 +2098,10 @@ reservationForm.addEventListener('submit', function (e) {
   if (errors == 1) {
     alert('le formulaire ne peut pas être vide');
   } else {
-    e.target.submit();
+    var fd = new FormData(e.target);
+    axios.post(e.target.action, fd).then(function (data) {
+      console.log(data);
+    });
   }
 });
 

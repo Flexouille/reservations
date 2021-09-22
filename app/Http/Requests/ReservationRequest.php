@@ -31,8 +31,7 @@ class ReservationRequest extends FormRequest
             'hotel' => 'required',
             'adult_nb' => 'required|integer',
             'child_nb' => 'required|integer',
-            "breakfast" => 'required',
-            'preditected_arrival_time' => 'required',
+            'predicted_arrival_time' => 'required',
             'comment' => 'required'
         ];
     }
@@ -51,7 +50,6 @@ class ReservationRequest extends FormRequest
             "adult_nb.integer" => ":attribute doit etre un chiffre",
             'child_nb.required' => ':attribute est requis',
             "child_nb.integer" => ":attribute doit etre un chiffre",
-            'breakfast.required' => ':attribute est requis',
             'predicted_arrival_time.required' => ':attribute est requis',
             'comment.required' => ':attribute est requis',
         ];
@@ -67,8 +65,7 @@ class ReservationRequest extends FormRequest
             'hotel' => "L'hotel",
             'adult_nb' => "Le nombre d'adultes",
             'child_nb' => "Le nombre d'enfants",
-            "breakfast" => "xx",
-            'preditected_arrival_time' => "L'heure d'arrivée",
+            'predicted_arrival_time' => "L'heure d'arrivée",
             'comment' => "Le commentaire"
         ];
     }

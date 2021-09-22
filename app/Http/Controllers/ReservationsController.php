@@ -53,8 +53,14 @@ class ReservationsController extends Controller
      */
     public function store(ReservationRequest $request)
     {
+        // dd($request);
         $validated = $request->validated();
         $reservation = new Reservations($validated);
+        $predicted_arrival_time = $validated['arrival_time'].' '.$validated['predicted_arrival_time'];
+        dd($request);
+        $reservation->predicted_arrival_time = $predicted_arrival_time;
+        $reservation->save();
+        return view('pages.reservations.success')->with('success', 'Bravo');
     }
 
     /**
